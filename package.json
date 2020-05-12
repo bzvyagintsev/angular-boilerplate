@@ -16,12 +16,10 @@
   },
   "lint-staged": {
     "*.ts": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "*.(css|scss)": [
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix"
     ]
   },
   "private": true,
