@@ -1,0 +1,43 @@
+name: CD
+
+on:
+  push:
+    branches: [master, develop]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: |
+          npm ci
+          npm run lint
+          npm run build
+
+      - name: Deploy master
+        if: contains(github.ref, "master")
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting -P master
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Deploy develop
+        if: contains(github.ref, "develop")
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting -P develop
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "master": "cicd-angular-example",
+    "develop": "develop-cicd-angular-example"
+  }
+}
