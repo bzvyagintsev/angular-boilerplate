@@ -27,7 +27,7 @@ jobs:
           npm run build
 
       - name: Deploy master
-        if: contains(github.ref, "master")
+        if: contains(github.ref, 'refs/heads/master')
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting -P master
@@ -35,7 +35,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Deploy develop
-        if: contains(github.ref, "develop")
+        if: contains(github.ref, 'refs/heads/develop')
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting -P develop
