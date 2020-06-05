@@ -8,9 +8,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: [
-    'plugin:@angular-eslint/recommended',
-  ],
+  extends: ['plugin:@angular-eslint/recommended'],
   rules: {
     // ORIGINAL tslint.json -> "directive-selector": [true, "attribute", "app", "camelCase"],
     '@angular-eslint/directive-selector': [
@@ -24,6 +22,12 @@ module.exports = {
     ],
   },
   overrides: [
+    {
+      files: ['*.html'],
+      rules: {
+        'max-len': 'off'
+      }
+    },
     /**
      * This extra piece of configuration is only necessary if you make use of inline
      * templates within Component metadata, e.g.:
@@ -90,8 +94,8 @@ module.exports = {
       extends: ['plugin:protractor/recommended'],
       plugins: ['protractor'],
       rules: {
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-      }
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+      },
     },
   ],
 };
