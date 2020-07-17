@@ -30,7 +30,7 @@ jobs:
         if: contains(github.ref, 'refs/heads/master')
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting -P master
+          args: deploy --only hosting:master
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
@@ -38,6 +38,6 @@ jobs:
         if: contains(github.ref, 'refs/heads/develop')
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting -P develop
+          args: deploy --only hosting:develop
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

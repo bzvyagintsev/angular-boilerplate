@@ -1,6 +1,17 @@
 {
   "projects": {
-    "master": "cicd-angular-example",
-    "develop": "develop-cicd-angular-example"
+    "default": "cicd-angular-example"
+  },
+  "targets": {
+    "cicd-angular-example": {
+      "hosting": {
+        "master": [
+          "cicd-angular-example"
+        ],
+        "develop": [
+          "cicd-angular-example-develop"
+        ]
+      }
+    }
   }
 }
