@@ -1,39 +1,37 @@
 {
-  "hosting": [{
-    "target": "master",
-    "public": "dist/angular-boilerplate",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "headers": [{   
-      "source": "**/*.@(woff|js|css|jpg|jpeg|gif|png)",   
-      "headers": [{   
-        "key": "Cache-Control",   
-        "value": "max-age=31536000"
-      }]
-    }],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
-  {
-    "target": "develop",
-    "public": "dist/angular-boilerplate",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }]
+  "hosting": [
+    {
+      "target": "master",
+      "public": "dist/angular-boilerplate",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "headers": [
+        {
+          "source": "**/*.@(woff|js|css|jpg|jpeg|gif|png)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "develop",
+      "public": "dist/angular-boilerplate",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
 }
