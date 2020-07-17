@@ -1,6 +1,6 @@
 {
-  "hosting": {
-    "target": "cicd-angular-example",
+  "hosting": [{
+    "target": "master",
     "public": "dist/angular-boilerplate",
     "ignore": [
       "firebase.json",
@@ -13,5 +13,20 @@
         "destination": "/index.html"
       }
     ]
-  }
+  },
+  {
+    "target": "develop",
+    "public": "dist/angular-boilerplate",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }]
 }
